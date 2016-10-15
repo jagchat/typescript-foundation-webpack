@@ -17,7 +17,7 @@
     "@types/jquery": "^2.0.33",
     "css-loader": "^0.25.0",
     "exports-loader": "^0.6.3",
-    "foundation-sites": "^6.2.4-rc1",
+    "foundation-sites": "^6.2.3",
     "jquery": "^2.1.0",
     "node-sass": "^3.10.1",
     "sass-loader": "^4.0.2",
