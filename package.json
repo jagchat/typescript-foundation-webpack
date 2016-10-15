@@ -1,0 +1,32 @@
+{
+  "name": "typescript-foundation-webpack",
+  "version": "0.0.1",
+  "description": "Trying to bundle Foundation and jQuery with Webpack in TypeScript 2.x",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "typescript",
+    "webpack",
+    "foundation"
+  ],
+  "author": "Der-Alex",
+  "license": "GPL-3.0",
+  "private": true,
+  "dependencies": {
+    "@types/foundation-sites": "^6.1.28",
+    "@types/jquery": "^2.0.33",
+    "css-loader": "^0.25.0",
+    "exports-loader": "^0.6.3",
+    "foundation-sites": "^6.2.4-rc1",
+    "jquery": "^2.1.0",
+    "node-sass": "^3.10.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.9.1",
+    "typescript": "^2.0.3",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.16.2"
+  }
+}
