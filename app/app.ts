@@ -1,8 +1,12 @@
 import './main.scss';
-import 'jquery';
+import * as $ from 'jquery';
 import 'foundation-sites';
 
 $(() => {
+
+    $('.has-tip').on('click', function () {
+        console.log('clicked tip');
+    });
     $(document).foundation();
 });
 
