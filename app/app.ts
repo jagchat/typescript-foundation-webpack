@@ -1,5 +1,6 @@
 import './main.scss';
 import * as $ from 'jquery';
+window['jQuery'] = $;
 import 'foundation-sites';
 
 $(() => {
