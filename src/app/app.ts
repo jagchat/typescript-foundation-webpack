@@ -1,12 +1,13 @@
 import './main.scss';
 import * as $ from 'jquery';
-window['jQuery'] = $;
+(<any>window).jQuery = $;
+import * as _ from "lodash";
 import 'foundation-sites';
 
-$(() => {
 
+$(() => {
     $('.has-tip').on('click', function () {
-        console.log('clicked tip');
+        console.log(_.now());
     });
     $(document).foundation();
 });

@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './app/app.ts',
+    entry: './src/app/app.ts',
     output: {
-        filename: './app/bundle.js'
+        filename: './src/app/bundle.js'
     },
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -15,5 +15,8 @@ module.exports = {
                 test: /\.scss/, loaders: ['style', 'css', 'sass']
             }
         ]
+    },
+    ts: {
+        configFileName: './tsconfig.json'
     }
 };
