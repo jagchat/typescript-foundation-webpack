@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack-dev": "webpack --watch --config config/webpack.config.js",
-    "webpack-prod": "webpack --config config/webpack.config.js -p"
+    "webpack-prod": "webpack --config config/webpack.config.js -p --optimize-dedupe"
   },
   "keywords": [
     "typescript",
