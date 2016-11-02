@@ -5,12 +5,6 @@ module.exports = {
         app: './src/app/app.ts',
         vendor: './src/app/vendor.ts'
     },
-    output: {
-        filename: './src/app/bundle.js'
-    },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', './src/app/vendor.bundle.js')
-    ],
     resolve: {
         extensions: ['', '.ts', '.js']
     },
@@ -26,5 +20,11 @@ module.exports = {
     },
     ts: {
         configFileName: './tsconfig.json'
-    }
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin('vendor', './src/app/vendor.bundle.js')
+    ],
+    output: {
+        filename: './src/app/bundle.js'
+    },
 };
