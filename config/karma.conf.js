@@ -2,16 +2,16 @@ var webpackConfig = require('./webpack.test');
 
 module.exports = function (config) {
   var _config = {
-    basePath: '',
+    basePath: '../',
 
     frameworks: ['jasmine'],
 
     files: [
-      {pattern: './karma-test-shim.js', watched: false}
+      {pattern: 'src/app/**/*.js', watched: false}
     ],
 
     preprocessors: {
-      './karma-test-shim.js': ['webpack', 'sourcemap']
+      'src/app/**/!(*spec).js': ['webpack', 'coverage']
     },
 
     webpack: webpackConfig,
@@ -24,14 +24,21 @@ module.exports = function (config) {
       noInfo: true
     },
 
-    reporters: ['spec'],
-    specReporter: {
-      maxLogLines: 5,         // limit number of lines logged per test
-      suppressErrorSummary: true,  // do not print error summary
-      suppressFailed: false,  // do not print information about failed tests
-      suppressPassed: false,  // do not print information about passed tests
-      suppressSkipped: true,  // do not print information about skipped tests
-      showSpecTiming: true // print the time elapsed for each spec
+    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
+    remapIstanbulReporter: {
+      reports: {
+        html: 'coverage'
+      }
+    },
+    // configure istanbul coverage reporting
+    coverageReporter: {
+      dir: 'coverage',
+      // configure the different reporters and their output dirs and folders
+      reporters: [
+        { type: 'json', subdir: '.', file: 'coverage-remap.json' }, // JSON is needed for remap-istanbul (js->ts map)
+        { type: 'html', subdir: 'html-js' } // generates JS coverage report
+        // { type: 'teamcity', subdir: '../testresult/coverage/', file: 'teamcity.txt' }
+      ]
     },
     port: 9876,
     colors: true,
