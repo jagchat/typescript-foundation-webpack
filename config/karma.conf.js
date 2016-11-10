@@ -2,16 +2,20 @@ var webpackConfig = require('./webpack.test');
 
 module.exports = function (config) {
   var _config = {
-    basePath: '../',
+    basePath: '',
 
     frameworks: ['jasmine'],
 
     files: [
-      {pattern: 'src/app/**/*.js', watched: false}
+      {pattern: './config/karma-test-shim.js', watched: false}
     ],
 
     preprocessors: {
-      'src/app/**/!(*spec).js': ['webpack', 'coverage']
+      './config/karma-test-shim.js': ['coverage', 'webpack', 'sourcemap']
+    },
+
+    coverageReporter: {
+      type: 'in-memory'
     },
 
     webpack: webpackConfig,
@@ -24,22 +28,7 @@ module.exports = function (config) {
       noInfo: true
     },
 
-    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
-    remapIstanbulReporter: {
-      reports: {
-        html: 'coverage'
-      }
-    },
-    // configure istanbul coverage reporting
-    coverageReporter: {
-      dir: 'coverage',
-      // configure the different reporters and their output dirs and folders
-      reporters: [
-        { type: 'json', subdir: '.', file: 'coverage-remap.json' }, // JSON is needed for remap-istanbul (js->ts map)
-        { type: 'html', subdir: 'html-js' } // generates JS coverage report
-        // { type: 'teamcity', subdir: '../testresult/coverage/', file: 'teamcity.txt' }
-      ]
-    },
+    reporters: ['spec', 'coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

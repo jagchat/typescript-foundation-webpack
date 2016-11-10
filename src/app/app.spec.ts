@@ -1,3 +1,4 @@
+import {} from ''
 import {testFunction} from "./app";
 
 describe("The test function", () =>{

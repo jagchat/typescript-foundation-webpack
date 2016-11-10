@@ -1,9 +1,10 @@
 var webpack = require('webpack');
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var helpers = require('./helpers');
 module.exports = {
     entry: {
-        app: './src/app/app.ts',
-        vendor: './src/app/vendor.ts'
+        vendor: './src/app/vendor.ts',
+        app: './src/app/app.ts'
     },
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -14,17 +15,27 @@ module.exports = {
                 test: /\.ts$/, loader: 'ts-loader'
             },
             {
+                test: /\.html$/, loader: 'html'
+            },
+            {
                 test: /\.scss/, loaders: ['style', 'css', 'sass']
+            },
+            {
+                test: /\.css$/,
+                loader: 'raw'
             }
+
         ]
     },
     ts: {
         configFileName: './tsconfig.json'
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('vendor', './src/app/vendor.bundle.js')
-    ],
-    output: {
-        filename: './src/app/bundle.js'
-    },
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app', 'vendor']
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/app/index.html'
+        })
+    ]
 };
