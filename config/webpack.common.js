@@ -4,7 +4,8 @@ var helpers = require('./helpers');
 module.exports = {
     entry: {
         vendor: './src/app/vendor.ts',
-        app: './src/app/app.ts'
+        app: './src/app/app.ts',
+        spec: './src/app/app.spec.ts'
     },
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -32,7 +33,7 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor']
+            name: ['app', 'vendor', 'spec']
         }),
         new HtmlWebpackPlugin({
             template: 'src/app/index.html'

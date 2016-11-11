@@ -39,11 +39,11 @@ module.exports = {
         loader: 'json'
       }
 
-    ],
-    postLoaders: [{
-      test: /\.(js|ts)$/,
-      loader: 'istanbul-instrumenter-loader',
-      include: helpers.root('src', 'app')
-    }]
+    ]
+    //postLoaders: [{
+    //  test: /\.(js|ts)$/,
+    //  loader: 'istanbul-instrumenter-loader',
+    //  include: helpers.root('src', 'app')
+    //}]
   }
 };
